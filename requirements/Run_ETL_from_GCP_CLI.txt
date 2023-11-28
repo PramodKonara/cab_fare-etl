@@ -1,0 +1,23 @@
+gcloud config set project nth-hybrid-405305
+
+
+
+python -m cab_fare_bigquery_pipeline \
+    --region us-west1 \
+    --runner DataflowRunner \
+    --project nth-hybrid-405305 \
+	--requirements_file requirements.txt \
+	--num_workers=4
+	
+
+python -m cab_fare_bigquery_pipeline \
+ — runner DataflowRunner \
+ — region us-east1 \
+ — project nth-hybrid-405305 \
+ - requirements_file requirements.txt \
+ — staging_location gs://uk-property-data/ETL-1/stage \
+ — temp_location gs://uk-property-data/ETL-1/temp \
+ — template_location gs://uk-property-data/ETL-1/templates/cab_fare_bigquery_template
+	
+	
+		
